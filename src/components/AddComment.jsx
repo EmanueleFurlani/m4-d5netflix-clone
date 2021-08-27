@@ -2,21 +2,33 @@ import { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 
 class AddComment extends Component {
+  // state = {
+  //   comment: {
+  //     name:,
+  //   }
+  // }
   render() {
     return (
       <>
-        <h6>Comment this movie</h6>
+        <h5>Add new comment</h5>
         <Form>
-          <Form.Group className="my-3" controlId="formBasicEmail">
-            <Form.Label>Name</Form.Label>
-            <Form.Control type="text" placeholder="Enter your name" />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Comment this movie</Form.Label>
+          <Form.Group className="mb-3" controlId="comment">
+            <Form.Label>Your comment:</Form.Label>
             <Form.Control as="textarea" rows={3} />
           </Form.Group>
+          <Form.Group className="my-3" controlId="rate">
+            <Form.Label>Your rating</Form.Label>
+            <Form.Control as="select">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </Form.Control>
+          </Form.Group>
+
           <Button variant="primary" type="submit">
-            Submit
+            Add comment
           </Button>
         </Form>
       </>
