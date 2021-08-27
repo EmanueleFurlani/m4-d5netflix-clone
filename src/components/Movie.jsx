@@ -1,6 +1,6 @@
 import React from 'react'
 import { Component } from 'react'
-// import CommentsDropdown from './CommentsDropdown'
+
 
 
 
@@ -17,7 +17,7 @@ class Movie extends Component {
 		return (
 			<div className="col-md-2 col-lg-2 movie-container mx-0 px-1">
 				<img src={this.state.Poster} className="img-fluid carousel-img" alt="Movie Here"/>
-				{/* <CommentsDropdown /> */}
+				
 			</div>
 		)
 	}
