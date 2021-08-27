@@ -5,6 +5,7 @@ import AddComment from "./AddComment";
 import DisplayComments from "./DisplayComments";
 // import CommentsDropdown from './CommentsDropdown'
 
+
 class Movie extends Component {
   state = {
     show: false,
@@ -15,9 +16,6 @@ class Movie extends Component {
     this.setState({ show: !this.state.show });
   }
 
-  // componentDidMount = () => {
-  //   this.setState({selectedMovie:this.props.movie})
-  // }
   render() {
     return (
       <div className="col-md-2 col-lg-2 movie-container mx-0 px-1">
@@ -44,6 +42,7 @@ class Movie extends Component {
       </div>
     );
   }
+
 }
 
 export default Movie;
