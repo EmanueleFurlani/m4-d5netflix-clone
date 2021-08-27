@@ -1,3 +1,4 @@
+
 import './App.css'
 import NetflixNavbar from "./components/NetflixNavbar"
 import Header from './components/Header'
@@ -10,6 +11,17 @@ function App() {
       <Header />
       <NetflixFooter />
     </>
+import logo from './logo.svg';
+import './App.css';
+import Home from './components/Home';
+import {Container} from 'react-bootstrap'
+
+function App() {
+  return (
+      <Container fluid>
+        <Home />
+      </Container>
+
   );
 }
 
