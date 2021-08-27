@@ -1,26 +1,48 @@
-import React from 'react'
-import { Component } from 'react'
-
-
+import React from "react";
+import { Component } from "react";
+import { Modal, Button } from "react-bootstrap";
+import AddComment from "./AddComment";
+import DisplayComments from "./DisplayComments";
+// import CommentsDropdown from './CommentsDropdown'
 
 
 class Movie extends Component {
-	state = {
-		Poster: this.props.movie.Poster,
-		Title: this.props.movie.Title,
-		Type: this.props.movie.Type,
-		Year: this.props.movie.Year,
-		imdbID: this.props.imdbID
-	}
-	
-	render() {
-		return (
-			<div className="col-md-2 col-lg-2 movie-container mx-0 px-1">
-				<img src={this.state.Poster} className="img-fluid carousel-img" alt="Movie Here"/>
-				
-			</div>
-		)
-	}
+  state = {
+    show: false,
+    // selectedMovie:{}
+  };
+
+  handleModal() {
+    this.setState({ show: !this.state.show });
+  }
+
+  render() {
+    return (
+      <div className="col-md-2 col-lg-2 movie-container mx-0 px-1">
+        {this.props.movie.Title && (
+          <>
+            <a onClick={() => this.setState({ show: true })}>
+              <img
+                src={this.props.movie.Poster}
+                className="img-fluid carousel-img"
+                alt="Movie Here"
+              />
+            </a>
+            <Modal show={this.state.show} onHide={() => this.handleModal()}>
+              <Modal.Header closeButton>
+                {this.props.movie.Title} (<i>{this.props.movie.Year}</i>)
+              </Modal.Header>
+              <Modal.Body>
+                <DisplayComments selectedMovie={this.props.movie.imdbID} />
+                <AddComment selectedMovie={this.props.movie} />
+              </Modal.Body>
+            </Modal>
+          </>
+        )}
+      </div>
+    );
+  }
+
 }
 
-export default Movie
+export default Movie;
