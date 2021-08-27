@@ -1,3 +1,16 @@
+
+import './App.css'
+import NetflixNavbar from "./components/NetflixNavbar"
+import Header from './components/Header'
+import NetflixFooter from "./components/NetflixFooter"
+
+function App() {
+  return (
+    <>
+      <NetflixNavbar />
+      <Header />
+      <NetflixFooter />
+    </>
 import logo from './logo.svg';
 import './App.css';
 import Home from './components/Home';
@@ -8,8 +21,7 @@ function App() {
       <Container fluid>
         <Home />
       </Container>
-      
-   
+
   );
 }
 
