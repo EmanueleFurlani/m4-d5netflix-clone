@@ -31,7 +31,12 @@ class DisplayComments extends Component {
         <h5>Comments:</h5>
         <ul>
           {this.state.comments.map((c) => (
-            <li>{c.comment}</li>
+            <li>
+              {c.comment}
+              <i>
+                (Rate: {c.rate} / Date: {c.createdAt})
+              </i>
+            </li>
           ))}
         </ul>
       </>
