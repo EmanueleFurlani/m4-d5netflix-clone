@@ -33,7 +33,7 @@ class CustomNavbar extends Component {
             <Nav.Link>My list</Nav.Link>
           </Nav>
           <Nav id="interaction">
-            <AiOutlineSearch />
+            
              <Form inline>
               <FormControl
                 type="text"
@@ -42,9 +42,7 @@ class CustomNavbar extends Component {
                 value={this.state.query}
                 onChange={(e) => this.setState({ query: e.target.value })}
               />
-              <Button variant="outline-success" onClick={this.handleSearch}>
-                Search
-              </Button>
+             <AiOutlineSearch />
             </Form>
             <Nav.Link className='nav-link-c'>KIDS</Nav.Link>
             <IoIosNotifications />
