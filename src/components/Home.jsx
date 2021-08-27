@@ -8,7 +8,7 @@ import Error from './Error'
 
 export default class Home extends Component {
 	state = {
-		isLoaded: false,
+		isLoading: true,
 		isError: false,
 
 		sections: [{
@@ -41,7 +41,7 @@ export default class Home extends Component {
 				movieSection[section].movies = data[section]
 			}
 			this.setState({
-				isLoaded: true,
+				isLoading: false,
 				sections: movieSection
 			})
 			
@@ -49,7 +49,7 @@ export default class Home extends Component {
 			console.log(error)
 			this.setState({
 				isError: true,
-				isLoaded: false
+				isLoading: false
 			})
 			
 		}
@@ -58,9 +58,10 @@ export default class Home extends Component {
 	
 	render() {
 	
-		if (this.state.isLoaded === true){
+		if (this.state.isLoading !== true && !this.state.isError){
 			return (
 				<>
+			 
 					<MovieSection 
 						sectionTitle={this.state.sections[0].title} 
 						moviesFetch={this.state.sections[0].movies}
@@ -80,8 +81,9 @@ export default class Home extends Component {
 		} else {
 			return (
 				<>
-				<Loader />
-				<Error />
+				{this.state.isError?
+				<Error />:<Loader />
+				 }
 				</>
 			)
 		}

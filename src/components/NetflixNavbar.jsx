@@ -17,24 +17,24 @@ class CustomNavbar extends Component {
  
   };
 
-  // fetchMovie = async ()=>{
-  //   const response = await fetch('http://www.omdbapi.com/?apikey=f7c25f33&s=harry%20potter')
-  //   if(response.ok){
-  //     const data = await response.json()
-  //     console.log(data)
-  //     this.setState({
-  //       movies: data.Search
+  fetchMovie = async ()=>{
+    const response = await fetch('http://www.omdbapi.com/?apikey=f7c25f33&s=harry%20potter')
+    if(response.ok){
+      const data = await response.json()
+      console.log(data)
+      this.setState({
+        movies: data.Search
         
-  //     })
-
-  //   }
+      })
+      console.log('Harry', data)
+    }
    
-  //   console.log('Harry', movies)
+    
 
-  // }
-  // componentDidMount(){
-  //   this.fetchMovie()
-  // }
+  }
+  componentDidMount(){
+    this.fetchMovie()
+  }
   
   render() {
     return (
