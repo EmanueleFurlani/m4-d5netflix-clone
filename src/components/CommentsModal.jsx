@@ -1,18 +1,35 @@
 import { Button, Modal } from "react-bootstrap";
 import React from "react";
+import AddComment from "./AddComment";
 
-class CommentsModal extends React.Component() {
+class CommentsModal extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      show: false,
+      comments: [],
+    };
+  }
+
+  handleModal() {
+    this.setState({ show: !this.state.show });
+  }
   render() {
     return (
       <div>
-        <Button>Movie details</Button>
-        <Modal show={true}>
-          <Modal.Header>Modal Header</Modal.Header>
-          <Modal.Body>Test info</Modal.Body>
+        <Button
+          onClick={() => {
+            this.handleModal();
+          }}
+        >
+          Show Details
+        </Button>
+        <Modal show={this.state.show} onHide={() => this.handleModal()}>
+          <Modal.Header closeButton>MOVIE TITLE HERE</Modal.Header>
+          <Modal.Body>
+            <AddComment />
+          </Modal.Body>
         </Modal>
-        <Modal.Footer>
-          <Button>Close modal</Button>
-        </Modal.Footer>
       </div>
     );
   }
