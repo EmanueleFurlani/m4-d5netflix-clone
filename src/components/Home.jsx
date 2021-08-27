@@ -2,11 +2,12 @@ import { Component } from 'react'
 import React from 'react'
 import MovieSection from './MovieSection'
 import Loader from './Loader'
-import '../styles/home.css'
+
 
 export default class Home extends Component {
 	state = {
 		isLoaded: false,
+
 		sections: [{
 			title: "Mission Impossible",
 			query: "mission",
@@ -16,7 +17,7 @@ export default class Home extends Component {
 			query: "love",
 			movies: []
 		},{
-			title: "Robots!",
+			title: "Robots",
 			query: "robot",
 			movies: []
 		}]
