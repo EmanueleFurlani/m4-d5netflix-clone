@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Button, Form, FormControl } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NetflixLogo from "../assets/netflix_logo.png";
 import Avatar from "../assets/cat.jpg"
@@ -8,6 +8,14 @@ import { AiOutlineSearch } from "react-icons/ai"
 import { IoIosNotifications } from "react-icons/io"
 
 class CustomNavbar extends Component {
+   state = {
+    query: "",
+  };
+  
+  handleSearch = () => {
+ 
+  };
+  
   render() {
     return (
       <Navbar collapseOnSelect expand="lg">
@@ -26,6 +34,18 @@ class CustomNavbar extends Component {
           </Nav>
           <Nav id="interaction">
             <AiOutlineSearch />
+             <Form inline>
+              <FormControl
+                type="text"
+                placeholder="Search"
+                className="mr-sm-2"
+                value={this.state.query}
+                onChange={(e) => this.setState({ query: e.target.value })}
+              />
+              <Button variant="outline-success" onClick={this.handleSearch}>
+                Search
+              </Button>
+            </Form>
             <Nav.Link className='nav-link-c'>KIDS</Nav.Link>
             <IoIosNotifications />
             <NavDropdown title={<img src={Avatar} id='avatar' alt="avatar" />} id="collasible-nav-dropdown">
