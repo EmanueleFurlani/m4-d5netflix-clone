@@ -1,16 +1,22 @@
 import { Component } from "react";
-import { Navbar, Nav, NavDropdown,Form, FormControl } from "react-bootstrap";
+import {
+  Navbar,
+  Nav,
+  NavDropdown,
+  Button,
+  Form,
+  FormControl,
+} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NetflixLogo from "../assets/netflix_logo.png";
-import Avatar from "../assets/cat.jpg"
+import Avatar from "../assets/cat.jpg";
 import "../style.css";
-import { AiOutlineSearch } from "react-icons/ai"
-import { IoIosNotifications } from "react-icons/io"
+import { AiOutlineSearch } from "react-icons/ai";
+import { IoIosNotifications } from "react-icons/io";
 
 class CustomNavbar extends Component {
-   state = {
-     movies:[],
-    query: ""
+  state = {
+    query: "",
   };
   
   handleSearch = () => {
@@ -36,9 +42,13 @@ class CustomNavbar extends Component {
     this.fetchMovie()
   }
   
+
+
+  handleSearch = () => {};
+
   render() {
     return (
-      <Navbar id="navbar" collapseOnSelect expand="lg">
+      <Navbar collapseOnSelect expand="lg">
         {/* <Container > */}
         <Navbar.Brand>
           <img src={NetflixLogo} id="logo" alt="logo" />
@@ -53,8 +63,7 @@ class CustomNavbar extends Component {
             <Nav.Link>My list</Nav.Link>
           </Nav>
           <Nav id="interaction">
-            
-             <Form inline>
+            <Form inline>
               <FormControl
                 type="text"
                 placeholder="Search"
@@ -62,11 +71,14 @@ class CustomNavbar extends Component {
                 value={this.state.query}
                 onChange={(e) => this.setState({ query: e.target.value })}
               />
-             <AiOutlineSearch />
+              <AiOutlineSearch />
             </Form>
-            <Nav.Link className='nav-link-c'>KIDS</Nav.Link>
+            <Nav.Link className="nav-link-c">KIDS</Nav.Link>
             <IoIosNotifications />
-            <NavDropdown title={<img src={Avatar} id='avatar' alt="avatar" />} id="collasible-nav-dropdown">
+            <NavDropdown
+              title={<img src={Avatar} id="avatar" alt="avatar" />}
+              id="collasible-nav-dropdown"
+            >
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action

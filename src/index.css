@@ -40,16 +40,3 @@ body {
   align-items: center;
   
 }
-
-#navbar{
-  position: fixed;
-  top:0px;
-  right:0px;
-  left:0px;
-  z-index: 99;
-  background-color: rgb(19, 22, 22);
-
-}
-#header{
-  margin-top:90px ;
-}
