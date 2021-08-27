@@ -12,7 +12,6 @@ class AddComment extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state.body);
     try {
       fetch("https://striveschool-api.herokuapp.com/api/comments/", {
         method: "POST",
@@ -67,7 +66,7 @@ class AddComment extends Component {
               <option>5</option>
             </Form.Control>
           </Form.Group>
-          <a onClick={() => console.log(this.props)}>console</a>
+
           <Button variant="primary" type="submit">
             Add comment
           </Button>

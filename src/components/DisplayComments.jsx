@@ -1,10 +1,14 @@
 import { Component } from "react";
+import { Button } from "react-bootstrap";
 
 class DisplayComments extends Component {
-  comments = [];
-  componentDidMount() {
+  state = {
+    comments: [],
+  };
+
+  async componentDidMount() {
     try {
-      const response = fetch(
+      const response = await fetch(
         "https://striveschool-api.herokuapp.com/api/comments/" +
           this.props.selectedMovie,
         {
@@ -14,8 +18,10 @@ class DisplayComments extends Component {
           },
         }
       );
-      const data = response.json();
-      this.comments.push(data);
+      const data = await response.json();
+      this.setState({
+        comments: data,
+      });
     } catch {}
   }
 
@@ -24,7 +30,9 @@ class DisplayComments extends Component {
       <>
         <h5>Comments:</h5>
         <ul>
-          <button onClick={console.log(this.comments)}>click</button>
+          {this.state.comments.map((c) => (
+            <li>{c.comment}</li>
+          ))}
         </ul>
       </>
     );
