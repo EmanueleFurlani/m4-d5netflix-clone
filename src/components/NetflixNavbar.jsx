@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Navbar, Nav, NavDropdown, Button, Form, FormControl } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown,Form, FormControl } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NetflixLogo from "../assets/netflix_logo.png";
 import Avatar from "../assets/cat.jpg"
@@ -9,16 +9,36 @@ import { IoIosNotifications } from "react-icons/io"
 
 class CustomNavbar extends Component {
    state = {
-    query: "",
+     movies:[],
+    query: ""
   };
   
   handleSearch = () => {
  
   };
+
+  // fetchMovie = async ()=>{
+  //   const response = await fetch('http://www.omdbapi.com/?apikey=f7c25f33&s=harry%20potter')
+  //   if(response.ok){
+  //     const data = await response.json()
+  //     console.log(data)
+  //     this.setState({
+  //       movies: data.Search
+        
+  //     })
+
+  //   }
+   
+  //   console.log('Harry', movies)
+
+  // }
+  // componentDidMount(){
+  //   this.fetchMovie()
+  // }
   
   render() {
     return (
-      <Navbar collapseOnSelect expand="lg">
+      <Navbar id="navbar" collapseOnSelect expand="lg">
         {/* <Container > */}
         <Navbar.Brand>
           <img src={NetflixLogo} id="logo" alt="logo" />

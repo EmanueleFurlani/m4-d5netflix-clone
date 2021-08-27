@@ -2,11 +2,13 @@ import { Component } from 'react'
 import React from 'react'
 import MovieSection from './MovieSection'
 import Loader from './Loader'
+import Error from './Error'
 
 
 export default class Home extends Component {
 	state = {
 		isLoaded: false,
+		isError: false,
 
 		sections: [{
 			title: "Mission Impossible",
@@ -24,6 +26,7 @@ export default class Home extends Component {
 	}
 	
 	componentDidMount = async () => {
+		try {
 			let response = await fetch(`http://www.omdbapi.com/?apikey=f7c25f33&s=${this.state.sections[0].query}`)
 			let responseTwo = await fetch(`http://www.omdbapi.com/?apikey=f7c25f33&s=${this.state.sections[1].query}`)
 			let responseThree = await fetch(`http://www.omdbapi.com/?apikey=f7c25f33&s=${this.state.sections[2].query}`)
@@ -40,6 +43,16 @@ export default class Home extends Component {
 				isLoaded: true,
 				sections: movieSection
 			})
+			
+		} catch (error) {
+			console.log(error)
+			this.setState({
+				isError: true,
+				isLoaded: false
+			})
+			
+		}
+			
 	}
 	
 	render() {
@@ -65,7 +78,10 @@ export default class Home extends Component {
 			)
 		} else {
 			return (
+				<>
 				<Loader />
+				<Error />
+				</>
 			)
 		}
 	}

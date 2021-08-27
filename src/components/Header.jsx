@@ -8,7 +8,7 @@ import "../style.css"
 class Header extends Component {
   render() {
     return (
-      <div className="header__wrap">
+      <div className="header__wrap" id="header">
         <div className='header__inner'>
           <h2>Tv Shows</h2>
           <Dropdown >
